@@ -205,13 +205,20 @@ def main(argv=None):
         bitbucket_pass
     )
 
+    gitmodule_mappings = []
+    for line in args.gitmodule_mappings.splitlines():
+        if len(line.strip()) <= 0:
+            continue
+        parts = line.split(' ')
+        gitmodule_mappings.append((parts[0], parts[1]))
+
     paths = process_repos(
         stash,
         args.bitbucket_project,
         args.working_dir,
         args.gitea_ssh_base,
         args.gitea_org,
-        args.gitmodule_mappings,
+        gitmodule_mappings,
     )
     if args.push:
         push_all(
