@@ -11,7 +11,6 @@ with open(os.path.join(here, 'CHANGES.txt')) as f:
 # see requirements.txt for requirements
 requires = [
     'stashy',
-    'gitpython',
 ]
 
 tests_require = [
