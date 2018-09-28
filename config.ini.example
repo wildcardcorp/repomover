@@ -1,0 +1,15 @@
+[DEFAULT]
+gitea_http_base = https://gitea.lan/
+gitea_ssh_base = ssh://gitea.lan/
+gitea_api_key = adfsdf23eqw32e2e2e323e
+gitea_org = Proj
+
+bitbucket_http_base = https://bitbucket.fqdn.lan/stash/
+bitbucket_username = admin
+bitbucket_project = PROJ
+
+gitmodule_mappings =
+    ssh://originalurl/found/in/.gitmodules ssh://newurl/found/in/.gimodules
+
+working_dir = ./workingdir
+push = True

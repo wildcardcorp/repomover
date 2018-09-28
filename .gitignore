@@ -1,0 +1,7 @@
+workingdir
+config.ini
+tmp
+env
+*.egg-info
+*.pyc
+__pycache__
