@@ -121,7 +121,7 @@ def process_repos(stash, project_key, working_folder, gitea_ssh_base, gitea_org,
 
         # GET OR UPDATE
         logging.info("cloning "+repo["name"])
-        checkout_folder = os.path.join(working_folder, repo["name"])
+        checkout_folder = os.path.join(working_folder, repo["name"].lower())
         if os.path.exists(checkout_folder):
             try:
                 os.system("cd \""+checkout_folder+"\" && git pull --rebase")
@@ -154,7 +154,7 @@ def process_repos(stash, project_key, working_folder, gitea_ssh_base, gitea_org,
         # UPDATE REMOTES
         logging.info("updating remotes for "+repo["name"])
         try:
-            gitea_url = gitea_ssh_base + gitea_org + "/" + repo["name"] + ".git"
+            gitea_url = gitea_ssh_base + gitea_org + "/" + repo["name"].lower() + ".git"
             os.system("cd \""+checkout_folder+"\" && git remote set-url origin \""+gitea_url+"\"")
         except Exception:
             logging.error("couldn't set origins: "+repo["name"])
@@ -172,7 +172,7 @@ def process_repos(stash, project_key, working_folder, gitea_ssh_base, gitea_org,
 
             os.system("cd \""+checkout_folder+"\" && git commit -am \"update gitmodules\"")
 
-        paths.append((repo["name"], checkout_folder))
+        paths.append((repo["name"].lower(), checkout_folder))
 
     return paths
 
