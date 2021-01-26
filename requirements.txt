@@ -5,7 +5,7 @@ idna==2.7
 mock==2.0.0
 pbr==4.2.0
 -e git+ssh://git@github.com/wildcardcorp/repomover.git@ed6e19fb1235bd2b6e2e11953134bf6edd5a5ea6#egg=repomover
-requests==2.19.1
+requests>=2.20.0
 six==1.11.0
 stashy==0.5
 urllib3==1.24.2
